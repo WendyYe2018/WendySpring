@@ -1,16 +1,9 @@
-package com.wendy.service;
+package com.wendy.demo;
 
-import com.wendy.service.Aspect.CostTimeAspect;
-import com.wendy.service.Aspect.WeakDependsAspect;
-import com.wendy.service.Impl.UserInterface;
+import com.wendy.demo.service.Impl.UserInterface;
 import com.wendy.spring.SelfApplicationContext;
-import com.wendy.spring.aop.Invocation;
-import com.wendy.spring.aop.MethodInterceptor;
-import com.wendy.spring.aop.ProxyFactory;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.List;
 
 public class Test {
     public static void main(String[] args) throws Exception {
@@ -28,5 +21,15 @@ public class Test {
 
 
         userService.test();
+
+        Method method =
+                UserService.class
+                        .getMethod("sayHello");
+
+        Object result =
+                method.invoke(userService);
+
+        System.out.println(result);
+
     }
 }

@@ -1,8 +1,8 @@
-package com.wendy.service;
+package com.wendy.demo.service;
 
-import com.wendy.service.Impl.UserInterface;
-import com.wendy.service.annotation.CostTime;
-import com.wendy.service.annotation.WeakDepends;
+import com.wendy.demo.service.Impl.UserInterface;
+import com.wendy.demo.annotation.CostTime;
+import com.wendy.demo.annotation.WeakDepends;
 import com.wendy.spring.*;
 
 @Component("userService")

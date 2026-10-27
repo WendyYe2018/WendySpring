@@ -1,8 +1,8 @@
-package com.wendy.service.Impl;
+package com.wendy.demo.service.Impl;
 
 
-import com.wendy.service.annotation.CostTime;
-import com.wendy.service.annotation.WeakDepends;
+import com.wendy.demo.annotation.CostTime;
+import com.wendy.demo.annotation.WeakDepends;
 
 public interface UserInterface {
 

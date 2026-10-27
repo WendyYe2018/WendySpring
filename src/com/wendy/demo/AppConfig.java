@@ -1,4 +1,4 @@
-package com.wendy.service;
+package com.wendy.demo;
 
 import com.wendy.spring.ComponentScan;
 

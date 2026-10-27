@@ -1,4 +1,4 @@
-package com.wendy.service.annotation;
+package com.wendy.demo.annotation;
 
 import java.lang.annotation.*;
 

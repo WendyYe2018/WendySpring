@@ -1,4 +1,4 @@
-package com.wendy.service;
+package com.wendy.demo.service;
 
 import com.wendy.spring.Component;
 import com.wendy.spring.InitializingBean;
