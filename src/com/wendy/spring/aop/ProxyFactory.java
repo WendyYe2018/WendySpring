@@ -1,5 +1,7 @@
 package com.wendy.spring.aop;
 
+import net.sf.cglib.proxy.Enhancer;
+
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.ArrayList;
@@ -9,20 +11,32 @@ public class ProxyFactory {
 
     public static Object createProxy(
             Object target,
-            List<MethodInterceptor>
-                    allInterceptors) {
+            List<MethodInterceptor> allInterceptors
+    ) {
 
-        return Proxy.newProxyInstance(
-                target.getClass().getClassLoader(),
-                target.getClass().getInterfaces(),
-                (proxy, method, args) -> {
+        Enhancer enhancer = new Enhancer();
+
+        enhancer.setSuperclass(
+                target.getClass()
+        );
+
+        enhancer.setCallback(
+                (net.sf.cglib.proxy.MethodInterceptor) (
+                        obj,
+                        method,
+                        args,
+                        methodProxy
+                ) -> {
 
                     List<MethodInterceptor> chain =
-                            buildChain(method, allInterceptors);
+                            buildChain(
+                                    method,
+                                    allInterceptors
+                            );
 
                     if (chain.isEmpty()) {
 
-                        return method.invoke(
+                        return methodProxy.invoke(
                                 target,
                                 args
                         );
@@ -39,6 +53,8 @@ public class ProxyFactory {
                     return invocation.proceed();
                 }
         );
+
+        return enhancer.create();
     }
 
     private static List<MethodInterceptor>

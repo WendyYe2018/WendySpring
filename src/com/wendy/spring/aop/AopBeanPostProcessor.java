@@ -1,10 +1,8 @@
-package com.wendy.demo;
+package com.wendy.spring.aop;
 
 import com.wendy.spring.BeanPostProcessor;
 import com.wendy.spring.Component;
 import com.wendy.spring.SelfApplicationContext;
-import com.wendy.spring.aop.MethodInterceptor;
-import com.wendy.spring.aop.ProxyFactory;
 
 import java.lang.reflect.Method;
 import java.util.List;
